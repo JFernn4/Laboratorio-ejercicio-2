@@ -34,5 +34,23 @@ namespace Laboratorio_ejercicio_2
             productsList.Add(product); //add an object
             Console.WriteLine("El producto ha sido registrado.");
         }
+        public static void SearchAProduct(List <Product> productsList)
+        {
+            Console.WriteLine("Ingrese el id del producto que desee consultar.");
+            int searchID= Convert.ToInt32(Console.ReadLine());
+            Product search = productsList.Find(p=>p.Id==searchID);
+            if (search != null)
+            {
+                foreach (Product product in productsList)
+                {
+                    Console.WriteLine($"ID: {product.Id}, Nombre: {product.Name}, Precio: {product.Price}, Stock: {product.Stock}.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("El producto no ha sido encontrado.");
+            }
+        }
+
     }
 }

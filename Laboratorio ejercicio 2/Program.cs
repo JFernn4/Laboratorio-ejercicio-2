@@ -17,6 +17,14 @@
                     case 1:
                         {
                             Console.Clear ();
+                            Product.AddProducts(productsList);
+                            Console.ReadKey();
+                            break;
+                        }
+                    case 2:
+                        {
+                            Console.Clear ();
+                            Product.SearchAProduct(productsList);
                             Console.ReadKey();
                             break;
                         }
