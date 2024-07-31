@@ -35,13 +35,20 @@
                             Console.ReadKey();
                             break;
                         }
-                    case 4:
+                    case 5:
                         {
                             Console.Clear();
                             foreach (Product product in productsList)
                             {
                                 Console.WriteLine($"Stock {product.Stock} Nombre: {product.Name}");
                             }
+                            Console.ReadKey();
+                            break;
+                        }
+                    case 4:
+                        {
+                            Console.Clear();
+                            Product.ResupplyStock(productsList);
                             Console.ReadKey();
                             break;
                         }
@@ -53,6 +60,8 @@
         {
             Console.WriteLine("1. Registrar productos.");
             Console.WriteLine("2. Consultar producto.");
+            Console.WriteLine("3. Vender productos.");
+            Console.WriteLine("4. Reabastecer prodcuto.");
         }
     }
 }

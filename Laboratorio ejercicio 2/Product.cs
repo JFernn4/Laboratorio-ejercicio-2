@@ -66,6 +66,25 @@ namespace Laboratorio_ejercicio_2
                 }
             }
         }
+        public static void ResupplyStock(List<Product> productsList)
+        {
+            Console.WriteLine("Ingrese el id del producto que desea reabastecer.");
+            int searchID = Convert.ToInt32(Console.ReadLine());
+            foreach (Product product in productsList)
+            {
+                if (searchID == product.Id)
+                {
+                    Console.WriteLine("Ingrese la cantidad de productos que desea añadir. ");
+                    int resupplyAmount = Convert.ToInt32(Console.ReadLine());
+                    product.Stock = product.Stock + resupplyAmount;
+                    Console.WriteLine($"Se han añadido {resupplyAmount} unidades de producto al stock.");
+                }
+                else
+                {
+                    Console.WriteLine("No se ha encontrado el producto.");
+                }
+            }
+        }
 
     }
 }
