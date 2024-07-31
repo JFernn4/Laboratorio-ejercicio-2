@@ -38,10 +38,7 @@
                     case 5:
                         {
                             Console.Clear();
-                            foreach (Product product in productsList)
-                            {
-                                Console.WriteLine($"Stock {product.Stock} Nombre: {product.Name}");
-                            }
+                            Product.UpdatePrices(productsList);
                             Console.ReadKey();
                             break;
                         }
@@ -62,6 +59,7 @@
             Console.WriteLine("2. Consultar producto.");
             Console.WriteLine("3. Vender productos.");
             Console.WriteLine("4. Reabastecer prodcuto.");
+            Console.WriteLine("5. Actualizar precio.");
         }
     }
 }

@@ -85,6 +85,26 @@ namespace Laboratorio_ejercicio_2
                 }
             }
         }
+        public static void UpdatePrices(List<Product> productsList)
+        {
+            Console.WriteLine("Ingrese el id del producto que desea actualizar el precio.");
+            int searchID = Convert.ToInt32(Console.ReadLine());
+            foreach (Product product in productsList)
+            {
+                if (searchID == product.Id)
+                {
+                    Console.WriteLine("Ingrese el nuevo precio. ");
+                    int newPrice = Convert.ToInt32(Console.ReadLine());
+                    product.Price = newPrice;
+                    Console.WriteLine($"Se ha actualizado el precio del producto.");
+                }
+                else
+                {
+                    Console.WriteLine("No se ha encontrado el producto.");
+                }
+            }
+
+        }
 
     }
 }
