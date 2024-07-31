@@ -20,5 +20,19 @@ namespace Laboratorio_ejercicio_2
             Price = price;
             Stock = stock;
         }
+        public static void AddProducts(List <Product> productsList)
+        {
+            Console.WriteLine("Ingrese el id del producto que desea ingresar.");
+            int id= Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Ingrese el nombre del producto.");
+            string name = Console.ReadLine();
+            Console.WriteLine("Ingrese el precio del producto.");
+            double price= Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Ingrese la cantidad de stock del producto.");
+            int stock= Convert.ToInt32(Console.ReadLine());
+            Product product= new Product(id, name, price, stock);
+            productsList.Add(product); //add an object
+            Console.WriteLine("El producto ha sido registrado.");
+        }
     }
 }
