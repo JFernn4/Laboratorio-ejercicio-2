@@ -58,7 +58,7 @@
                             }
                     }
                 }
-                catch (Exception ex) { Console.WriteLine($"Debe ingresar un numero del 1 al 6. " + ex.Message); }
+                catch (Exception ex) { Console.WriteLine($"Debe ingresar un numero del 1 al 6. " + ex.Message); Console.ReadKey(); }
             }
         }
         static void ShowMenu()
