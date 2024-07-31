@@ -10,52 +10,55 @@
             while (menu)
             {
                 Console.Clear();
-                ShowMenu();
-                option= Convert.ToInt32(Console.ReadLine());
-                switch (option)
+                try
                 {
-                    case 1:
-                        {
-                            Console.Clear ();
-                            Product.AddProducts(productsList);
-                            Console.ReadKey();
-                            break;
-                        }
-                    case 2:
-                        {
-                            Console.Clear ();
-                            Product.SearchAProduct(productsList);
-                            Console.ReadKey();
-                            break;
-                        }
-                    case 3:
-                        {
-                            Console.Clear ();
-                            Product.SellAProduct(productsList);
-                            Console.ReadKey();
-                            break;
-                        }
-                    case 4:
-                        {
-                            Console.Clear();
-                            Product.ResupplyStock(productsList);
-                            Console.ReadKey();
-                            break;
-                        }
-                    case 5:
-                        {
-                            Console.Clear();
-                            Product.UpdatePrices(productsList);
-                            Console.ReadKey();
-                            break;
-                        }
-                    case 6:
-                        {
-                            menu = false;
-                            break;
-                        }
+                    ShowMenu();
+                    option = Convert.ToInt32(Console.ReadLine());
+                    switch (option)
+                    {
+                        case 1:
+                            {
+                                Console.Clear();
+                                Product.AddProducts(productsList);
+                                Console.ReadKey();
+                                break;
+                            }
+                        case 2:
+                            {
+                                Console.Clear();
+                                Product.SearchAProduct(productsList);
+                                Console.ReadKey();
+                                break;
+                            }
+                        case 3:
+                            {
+                                Console.Clear();
+                                Product.SellAProduct(productsList);
+                                Console.ReadKey();
+                                break;
+                            }
+                        case 4:
+                            {
+                                Console.Clear();
+                                Product.ResupplyStock(productsList);
+                                Console.ReadKey();
+                                break;
+                            }
+                        case 5:
+                            {
+                                Console.Clear();
+                                Product.UpdatePrices(productsList);
+                                Console.ReadKey();
+                                break;
+                            }
+                        case 6:
+                            {
+                                menu = false;
+                                break;
+                            }
+                    }
                 }
-
+                catch (Exception ex) { Console.WriteLine($"Debe ingresar un numero del 1 al 6. " + ex.Message); }
             }
         }
         static void ShowMenu()

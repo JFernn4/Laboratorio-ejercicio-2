@@ -22,87 +22,107 @@ namespace Laboratorio_ejercicio_2
         }
         public static void AddProducts(List <Product> productsList)
         {
-            Console.WriteLine("Ingrese el id del producto que desea ingresar.");
-            int id= Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Ingrese el nombre del producto.");
-            string name = Console.ReadLine();
-            Console.WriteLine("Ingrese el precio del producto.");
-            double price= Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Ingrese la cantidad de stock del producto.");
-            int stock= Convert.ToInt32(Console.ReadLine());
-            Product product= new Product(id, name, price, stock);
-            productsList.Add(product); //add an object
-            Console.WriteLine("El producto ha sido registrado.");
+            try
+            {
+                Console.WriteLine("Ingrese el id del producto que desea ingresar.");
+                int id = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Ingrese el nombre del producto.");
+                string name = Console.ReadLine();
+                Console.WriteLine("Ingrese el precio del producto.");
+                double price = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Ingrese la cantidad de stock del producto.");
+                int stock = Convert.ToInt32(Console.ReadLine());
+                Product product = new Product(id, name, price, stock);
+                productsList.Add(product); //add an object
+                Console.WriteLine("El producto ha sido registrado.");
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
         public static void SearchAProduct(List <Product> productsList)
         {
             Console.WriteLine("Ingrese el id del producto que desee consultar.");
-            int searchID= Convert.ToInt32(Console.ReadLine());
-            Product search = productsList.Find(p=>p.Id==searchID);
-            if (search != null)
+            try
             {
+                int searchID = Convert.ToInt32(Console.ReadLine());
+                Product search = productsList.Find(p => p.Id == searchID);
+                if (search != null)
+                {
                     Console.WriteLine($"ID: {search.Id}, Nombre: {search.Name}, Precio: {search.Price}, Stock: {search.Stock}.");
+                }
+                else
+                {
+                    Console.WriteLine("El producto no ha sido encontrado.");
+                }
             }
-            else
-            {
-                Console.WriteLine("El producto no ha sido encontrado.");
-            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
         public static void SellAProduct(List<Product> productsList)
         {
             Console.WriteLine("Ingrese el id del producto que desee vender.");
-            int searchID = Convert.ToInt32(Console.ReadLine());
-            foreach (Product product in productsList)
+            try
             {
-                if (searchID== product.Id)
+                int searchID = Convert.ToInt32(Console.ReadLine());
+                foreach (Product product in productsList)
                 {
-                    Console.WriteLine("Ingrese la cantidad de productos que desea vender. ");
-                    int sellAmount= Convert.ToInt32(Console.ReadLine());
-                    product.Stock= product.Stock-sellAmount;
-                }
-                else
-                {
-                    Console.WriteLine("No se ha encontrado el producto.");
+                    if (searchID == product.Id)
+                    {
+                        Console.WriteLine("Ingrese la cantidad de productos que desea vender. ");
+                        int sellAmount = Convert.ToInt32(Console.ReadLine());
+                        product.Stock = product.Stock - sellAmount;
+                    }
+                    else
+                    {
+                        Console.WriteLine("No se ha encontrado el producto.");
+                    }
                 }
             }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
         public static void ResupplyStock(List<Product> productsList)
         {
             Console.WriteLine("Ingrese el id del producto que desea reabastecer.");
-            int searchID = Convert.ToInt32(Console.ReadLine());
-            foreach (Product product in productsList)
+            try
             {
-                if (searchID == product.Id)
+                int searchID = Convert.ToInt32(Console.ReadLine());
+                foreach (Product product in productsList)
                 {
-                    Console.WriteLine("Ingrese la cantidad de productos que desea añadir. ");
-                    int resupplyAmount = Convert.ToInt32(Console.ReadLine());
-                    product.Stock = product.Stock + resupplyAmount;
-                    Console.WriteLine($"Se han añadido {resupplyAmount} unidades de producto al stock.");
-                }
-                else
-                {
-                    Console.WriteLine("No se ha encontrado el producto.");
+                    if (searchID == product.Id)
+                    {
+                        Console.WriteLine("Ingrese la cantidad de productos que desea añadir. ");
+                        int resupplyAmount = Convert.ToInt32(Console.ReadLine());
+                        product.Stock = product.Stock + resupplyAmount;
+                        Console.WriteLine($"Se han añadido {resupplyAmount} unidades de producto al stock.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("No se ha encontrado el producto.");
+                    }
                 }
             }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
         public static void UpdatePrices(List<Product> productsList)
         {
             Console.WriteLine("Ingrese el id del producto que desea actualizar el precio.");
-            int searchID = Convert.ToInt32(Console.ReadLine());
-            foreach (Product product in productsList)
+            try
             {
-                if (searchID == product.Id)
+                int searchID = Convert.ToInt32(Console.ReadLine());
+                foreach (Product product in productsList)
                 {
-                    Console.WriteLine("Ingrese el nuevo precio. ");
-                    int newPrice = Convert.ToInt32(Console.ReadLine());
-                    product.Price = newPrice;
-                    Console.WriteLine($"Se ha actualizado el precio del producto.");
-                }
-                else
-                {
-                    Console.WriteLine("No se ha encontrado el producto.");
+                    if (searchID == product.Id)
+                    {
+                        Console.WriteLine("Ingrese el nuevo precio. ");
+                        int newPrice = Convert.ToInt32(Console.ReadLine());
+                        product.Price = newPrice;
+                        Console.WriteLine($"Se ha actualizado el precio del producto.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("No se ha encontrado el producto.");
+                    }
                 }
             }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
 
         }
 
