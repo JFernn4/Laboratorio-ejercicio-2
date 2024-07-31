@@ -35,6 +35,13 @@
                             Console.ReadKey();
                             break;
                         }
+                    case 4:
+                        {
+                            Console.Clear();
+                            Product.ResupplyStock(productsList);
+                            Console.ReadKey();
+                            break;
+                        }
                     case 5:
                         {
                             Console.Clear();
@@ -42,11 +49,9 @@
                             Console.ReadKey();
                             break;
                         }
-                    case 4:
+                    case 6:
                         {
-                            Console.Clear();
-                            Product.ResupplyStock(productsList);
-                            Console.ReadKey();
+                            menu = false;
                             break;
                         }
                 }
@@ -60,6 +65,7 @@
             Console.WriteLine("3. Vender productos.");
             Console.WriteLine("4. Reabastecer prodcuto.");
             Console.WriteLine("5. Actualizar precio.");
+            Console.WriteLine("6. Salir.");
         }
     }
 }
