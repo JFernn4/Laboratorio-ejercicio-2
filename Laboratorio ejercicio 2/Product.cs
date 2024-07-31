@@ -41,14 +41,29 @@ namespace Laboratorio_ejercicio_2
             Product search = productsList.Find(p=>p.Id==searchID);
             if (search != null)
             {
-                foreach (Product product in productsList)
-                {
-                    Console.WriteLine($"ID: {product.Id}, Nombre: {product.Name}, Precio: {product.Price}, Stock: {product.Stock}.");
-                }
+                    Console.WriteLine($"ID: {search.Id}, Nombre: {search.Name}, Precio: {search.Price}, Stock: {search.Stock}.");
             }
             else
             {
                 Console.WriteLine("El producto no ha sido encontrado.");
+            }
+        }
+        public static void SellAProduct(List<Product> productsList)
+        {
+            Console.WriteLine("Ingrese el id del producto que desee vender.");
+            int searchID = Convert.ToInt32(Console.ReadLine());
+            foreach (Product product in productsList)
+            {
+                if (searchID== product.Id)
+                {
+                    Console.WriteLine("Ingrese la cantidad de productos que desea vender. ");
+                    int sellAmount= Convert.ToInt32(Console.ReadLine());
+                    product.Stock= product.Stock-sellAmount;
+                }
+                else
+                {
+                    Console.WriteLine("No se ha encontrado el producto.");
+                }
             }
         }
 

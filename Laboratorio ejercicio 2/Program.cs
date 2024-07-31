@@ -28,6 +28,23 @@
                             Console.ReadKey();
                             break;
                         }
+                    case 3:
+                        {
+                            Console.Clear ();
+                            Product.SellAProduct(productsList);
+                            Console.ReadKey();
+                            break;
+                        }
+                    case 4:
+                        {
+                            Console.Clear();
+                            foreach (Product product in productsList)
+                            {
+                                Console.WriteLine($"Stock {product.Stock} Nombre: {product.Name}");
+                            }
+                            Console.ReadKey();
+                            break;
+                        }
                 }
 
             }
@@ -35,6 +52,7 @@
         static void ShowMenu()
         {
             Console.WriteLine("1. Registrar productos.");
+            Console.WriteLine("2. Consultar producto.");
         }
     }
 }
